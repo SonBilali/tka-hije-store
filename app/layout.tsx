@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Playfair_Display, Lato } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "../context/CartContext"; // <--- Importo 
-import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 
@@ -31,7 +30,6 @@ export const metadata: Metadata = {
     type: 'website',
   },
 };
-<Navbar />
 export default function RootLayout({
   children,
 }: Readonly<{
