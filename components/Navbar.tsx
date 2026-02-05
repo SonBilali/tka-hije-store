@@ -1,21 +1,20 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image"; // <-- Importimi i rëndësishëm
 import { usePathname } from "next/navigation";
 import { ShoppingBag, Search, Heart, User } from "lucide-react";
 
 export default function Navbar() {
     const pathname = usePathname();
 
-    // Nëse jemi në Studio (paneli i adminit), nuk e shfaqim këtë navbar
     if (pathname.startsWith("/studio")) return null;
 
     return (
         <header className="w-full bg-[#051F1A] text-[#D4AF37]">
-            {/* Sfondi Jeshile e Errët (#051F1A) dhe Teksti Gold (#D4AF37) */}
 
-            {/* RRJESHTI 1: Logoja, Kërkimi dhe Ikonat */}
-            <div className="flex justify-between items-center px-4 md:px-8 py-5 border-b border-[#1A3C34]">
+            {/* RRJESHTI 1 */}
+            <div className="flex justify-between items-center px-4 md:px-8 py-4 border-b border-[#1A3C34]">
 
                 {/* Majtas: Kërkimi */}
                 <div className="flex items-center gap-3 cursor-pointer hover:text-white transition">
@@ -23,14 +22,21 @@ export default function Navbar() {
                     <span className="text-xs font-medium tracking-widest uppercase hidden md:block">Kërko</span>
                 </div>
 
-                {/* Qendër: Logoja dhe Nëntitulli */}
-                <div className="text-center flex flex-col items-center">
-                    <Link href="/">
-                        <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-wide text-[#D4AF37]">
-                            T&apos;KA HIJE
-                        </h1>
+                {/* Qendër: LOGOJA */}
+                <div className="text-center flex flex-col items-center justify-center">
+                    <Link href="/" className="block relative">
+                        {/* Këtu vendoset përmasa e logos. Ndryshoji w- dhe h- nëse duhet më e madhe/vogël */}
+                        <div className="relative w-36 h-10 md:w-48 md:h-12">
+                            <Image
+                                src="/logo.png" // <-- Sigurohu që emri është fiks si në folderin public
+                                alt="T'KA HIJE Logo"
+                                fill
+                                className="object-contain" // Kjo bën që logoja të mos shtrembërohet
+                                priority // E ngarkon shpejt sepse është në kokë të faqes
+                            />
+                        </div>
                     </Link>
-                    <span className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-[#D4AF37]/80 mt-1">
+                    <span className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-[#D4AF37]/80 mt-2">
                         Krijuar. 2026 • AL-DE
                     </span>
                 </div>
@@ -47,7 +53,7 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {/* RRJESHTI 2: Menytë Naviguese */}
+            {/* RRJESHTI 2: Menytë */}
             <div className="flex justify-center py-4">
                 <nav>
                     <ul className="flex gap-6 md:gap-10 text-xs md:text-sm font-medium uppercase tracking-widest text-[#F2EFEB]">

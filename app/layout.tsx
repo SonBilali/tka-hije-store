@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Lato } from "next/font/google";
 import "./globals.css";
-import { CartProvider } from "../context/CartContext"; // <--- Importo Contextin
+import { CartProvider } from "../context/CartContext"; // <--- Importo 
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -17,10 +20,18 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  title: "T'ka Hije | Luxury Fashion",
-  description: "Veshje dhe aksesorë origjinalë.",
+  title: "T'KA HIJE | Vishu si të ka Hije",
+  description: "Dyqani zyrtar - Koleksioni i ri pranverë 2026. Veshje për femra, meshkuj dhe fëmijë.",
+  metadataBase: new URL('https://tka-hije-store.vercel.app'), // Zëvendëso me linkun tënd të saktë nëse është ndryshe
+  openGraph: {
+    title: "T'KA HIJE | Vishu si të ka Hije",
+    description: "Zbuloni elegancën e re. Krijuar 2026 • AL-DE",
+    siteName: "T'KA HIJE",
+    locale: 'sq_AL',
+    type: 'website',
+  },
 };
-
+<Navbar />
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -33,6 +44,7 @@ export default function RootLayout({
         <CartProvider>
           {children}
         </CartProvider>
+        <Footer />
       </body>
     </html>
   );
