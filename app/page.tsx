@@ -3,7 +3,6 @@ import Hero from "../components/Hero";
 import ProductCard from "../components/ProductCard";
 import CategoryGrid from "../components/CategoryGrid";
 import InstagramFeed from "../components/InstagramFeed";
-import Footer from "../components/Footer";
 import Brands from "../components/Brands";
 import { client } from "@/sanity/lib/client"; // <--- Lidhja me Sanity
 
@@ -72,7 +71,7 @@ export default async function Home() {
 
       <CategoryGrid />
       <InstagramFeed />
-      <Footer />
+
 
 
 
