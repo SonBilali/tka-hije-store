@@ -1,155 +1,64 @@
 "use client";
 
 import Link from "next/link";
-import { ShoppingBag, Menu, X, Search, User, Trash2 } from "lucide-react";
-import { useState } from "react";
-import { useCart } from "@/context/CartContext";
+import { usePathname } from "next/navigation";
+import { ShoppingBag, Search, Heart, User } from "lucide-react";
 
-const Navbar = () => {
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [isCartOpen, setIsCartOpen] = useState(false);
-    const { cartItems, removeItem, totalPrice } = useCart();
+export default function Navbar() {
+    const pathname = usePathname();
+
+    // Nëse jemi në Studio (paneli i adminit), nuk e shfaqim këtë navbar
+    if (pathname.startsWith("/studio")) return null;
 
     return (
-        <>
-            <nav className="bg-royal-cream border-b border-royal-gold/20 sticky top-0 z-50">
-                <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <header className="w-full bg-[#051F1A] text-[#D4AF37]">
+            {/* Sfondi Jeshile e Errët (#051F1A) dhe Teksti Gold (#D4AF37) */}
 
-                    {/* 1. Mobile Menu Button */}
-                    <button
-                        className="md:hidden text-royal-green"
-                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    >
-                        {isMobileMenuOpen ? <X /> : <Menu />}
-                    </button>
+            {/* RRJESHTI 1: Logoja, Kërkimi dhe Ikonat */}
+            <div className="flex justify-between items-center px-4 md:px-8 py-5 border-b border-[#1A3C34]">
 
-                    {/* 2. LOGO */}
-                    <Link href="/" className="text-2xl md:text-3xl font-serif font-bold text-royal-green tracking-tighter">
-                        T'KA HIJE
+                {/* Majtas: Kërkimi */}
+                <div className="flex items-center gap-3 cursor-pointer hover:text-white transition">
+                    <Search className="w-5 h-5" />
+                    <span className="text-xs font-medium tracking-widest uppercase hidden md:block">Kërko</span>
+                </div>
+
+                {/* Qendër: Logoja dhe Nëntitulli */}
+                <div className="text-center flex flex-col items-center">
+                    <Link href="/">
+                        <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-wide text-[#D4AF37]">
+                            T&apos;KA HIJE
+                        </h1>
                     </Link>
-
-                    {/* 3. Desktop Links */}
-                    <div className="hidden md:flex items-center gap-8 text-sm font-bold uppercase tracking-widest text-gray-600">
-                        <Link href="/" className="hover:text-royal-green transition">Ballina</Link>
-                        <Link href="/shop/femra" className="hover:text-royal-green transition">Femra</Link>
-                        <Link href="/shop/meshkuj" className="hover:text-royal-green transition">Meshkuj</Link>
-                        <Link href="/shop/aksesore" className="hover:text-royal-green transition">Aksesorë</Link>
-                    </div>
-
-                    {/* 4. Icons (Search, User, Cart) */}
-                    <div className="flex items-center gap-5 text-royal-green">
-                        <Search className="cursor-pointer hover:text-royal-gold transition hidden sm:block" size={22} />
-                        <User className="cursor-pointer hover:text-royal-gold transition hidden sm:block" size={22} />
-
-                        {/* Cart Icon with Badge */}
-                        <div
-                            className="relative cursor-pointer"
-                            onClick={() => setIsCartOpen(true)}
-                        >
-                            <ShoppingBag size={24} />
-                            {cartItems.length > 0 && (
-                                <span className="absolute -top-2 -right-2 bg-royal-red text-white text-[10px] font-bold h-5 w-5 flex items-center justify-center rounded-full">
-                                    {cartItems.length}
-                                </span>
-                            )}
-                        </div>
-                    </div>
+                    <span className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-[#D4AF37]/80 mt-1">
+                        Krijuar. 2026 • AL-DE
+                    </span>
                 </div>
 
-                {/* MOBILE MENU (Hapet kur je në celular) */}
-                {isMobileMenuOpen && (
-                    <div className="md:hidden bg-royal-cream border-t border-royal-gold/20 p-6 flex flex-col gap-4 text-sm font-bold uppercase tracking-widest text-gray-600">
-                        <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>Ballina</Link>
-                        <Link href="/shop/femra" onClick={() => setIsMobileMenuOpen(false)}>Femra</Link>
-                        <Link href="/shop/meshkuj" onClick={() => setIsMobileMenuOpen(false)}>Meshkuj</Link>
-                        <Link href="/shop/aksesore" onClick={() => setIsMobileMenuOpen(false)}>Aksesorë</Link>
-                    </div>
-                )}
-            </nav>
-
-            {/* --- CART SIDEBAR (Shporta që hapet anash) --- */}
-
-            {/* Sfondi i errët pas shportës */}
-            {isCartOpen && (
-                <div
-                    className="fixed inset-0 bg-black/50 z-[60] transition-opacity"
-                    onClick={() => setIsCartOpen(false)}
-                />
-            )}
-
-            {/* Vetë Shporta */}
-            <div className={`fixed top-0 right-0 h-full w-[400px] max-w-[85vw] bg-white z-[70] shadow-2xl transform transition-transform duration-300 ease-in-out ${isCartOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-
-                {/* Header i Shportës */}
-                <div className="p-6 border-b flex justify-between items-center bg-royal-green text-royal-gold">
-                    <h2 className="text-xl font-serif font-bold">Shporta Juaj</h2>
-                    <button onClick={() => setIsCartOpen(false)}>
-                        <X size={24} />
-                    </button>
-                </div>
-
-                {/* Lista e Produkteve */}
-                <div className="p-6 overflow-y-auto h-[calc(100vh-200px)]">
-                    {cartItems.length === 0 ? (
-                        <div className="text-center py-20 text-gray-500">
-                            <ShoppingBag size={48} className="mx-auto mb-4 opacity-20" />
-                            <p>Shporta është bosh.</p>
-                            <button
-                                onClick={() => setIsCartOpen(false)}
-                                className="mt-4 text-royal-green font-bold underline"
-                            >
-                                Fillo Blerjet
-                            </button>
-                        </div>
-                    ) : (
-                        <div className="space-y-6">
-                            {cartItems.map((item) => (
-                                <div key={item.id} className="flex gap-4 border-b pb-4">
-                                    {/* Foto e vogël */}
-                                    <div className="w-20 h-24 bg-gray-100 shrink-0 overflow-hidden relative">
-                                        <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
-                                    </div>
-
-                                    {/* Info Produkti */}
-                                    <div className="flex-1">
-                                        <h4 className="font-bold text-gray-800 text-sm">{item.name}</h4>
-                                        <p className="text-xs text-gray-500 mt-1">{item.brand}</p>
-                                        <p className="text-xs text-gray-500">Masa: {item.size}</p>
-                                        <div className="flex justify-between items-center mt-2">
-                                            <span className="font-bold text-royal-green">{item.price}€</span>
-                                            <button
-                                                onClick={() => removeItem(item.id)}
-                                                className="text-gray-400 hover:text-red-500 transition"
-                                            >
-                                                <Trash2 size={16} />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    )}
-                </div>
-
-                {/* Footer i Shportës (Totali + Butoni Checkout) */}
-                {cartItems.length > 0 && (
-                    <div className="absolute bottom-0 left-0 w-full bg-white border-t p-6">
-                        <div className="flex justify-between items-center mb-4 text-lg font-bold">
-                            <span>Totali:</span>
-                            <span>{totalPrice.toFixed(2)}€</span>
-                        </div>
-                        <Link
-                            href="/checkout"
-                            onClick={() => setIsCartOpen(false)}
-                            className="block w-full bg-royal-green text-royal-gold text-center py-4 font-bold uppercase tracking-widest hover:bg-gray-900 transition"
-                        >
-                            Vazhdo te Pagesa
+                {/* Djathtas: Ikonat */}
+                <div className="flex items-center gap-5">
+                    <Heart className="w-5 h-5 cursor-pointer hover:text-white transition" />
+                    <User className="w-5 h-5 cursor-pointer hover:text-white transition" />
+                    <div className="relative cursor-pointer hover:text-white transition">
+                        <Link href="/cart">
+                            <ShoppingBag className="w-5 h-5" />
                         </Link>
                     </div>
-                )}
+                </div>
             </div>
-        </>
-    );
-};
 
-export default Navbar;
+            {/* RRJESHTI 2: Menytë Naviguese */}
+            <div className="flex justify-center py-4">
+                <nav>
+                    <ul className="flex gap-6 md:gap-10 text-xs md:text-sm font-medium uppercase tracking-widest text-[#F2EFEB]">
+                        <Link href="/product/shop/femra" className="hover:text-[#D4AF37] transition-colors">Femra</Link>
+                        <Link href="/product/shop/meshkuj" className="hover:text-[#D4AF37] transition-colors">Meshkuj</Link>
+                        <Link href="/product/shop/femije" className="hover:text-[#D4AF37] transition-colors">Fëmijë</Link>
+                        <Link href="/product/shop/aksesore" className="hover:text-[#D4AF37] transition-colors">Aksesorë</Link>
+                        <Link href="/product/shop/outlet" className="hover:text-[#D4AF37] transition-colors">Outlet</Link>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    );
+}
