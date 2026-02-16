@@ -20,7 +20,7 @@ export default function Footer() {
 
                 {/* Teksti i vogël poshtë logos */}
                 <p className="text-xs uppercase tracking-[0.3em] opacity-70 mb-10">
-                    Krijuar. 2026 • AL-DE
+                    2026 • AL-DE
                 </p>
 
                 {/* Linqe shtesë (Opsionale) */}

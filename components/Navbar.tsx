@@ -57,11 +57,11 @@ export default function Navbar() {
             <div className="flex justify-center py-4">
                 <nav>
                     <ul className="flex gap-6 md:gap-10 text-xs md:text-sm font-medium uppercase tracking-widest text-[#F2EFEB]">
-                        <Link href="/product/shop/femra" className="hover:text-[#D4AF37] transition-colors">Femra</Link>
-                        <Link href="/product/shop/meshkuj" className="hover:text-[#D4AF37] transition-colors">Meshkuj</Link>
-                        <Link href="/product/shop/femije" className="hover:text-[#D4AF37] transition-colors">Fëmijë</Link>
-                        <Link href="/product/shop/aksesore" className="hover:text-[#D4AF37] transition-colors">Aksesorë</Link>
-                        <Link href="/product/shop/outlet" className="hover:text-[#D4AF37] transition-colors">Outlet</Link>
+                        <Link href="/shop/femra" className="hover:text-[#D4AF37] transition-colors">Femra</Link>
+                        <Link href="/shop/meshkuj" className="hover:text-[#D4AF37] transition-colors">Meshkuj</Link>
+                        <Link href="/shop/femije" className="hover:text-[#D4AF37] transition-colors">Fëmijë</Link>
+                        <Link href="/shop/aksesore" className="hover:text-[#D4AF37] transition-colors">Aksesorë</Link>
+                        <Link href="/shop/outlet" className="hover:text-[#D4AF37] transition-colors">Outlet</Link>
                     </ul>
                 </nav>
             </div>
