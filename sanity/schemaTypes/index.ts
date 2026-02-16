@@ -1,3 +1,5 @@
 import { product } from '../schema/product'
 
-export const schemaTypes = [product]
+export const schema = {
+    types: [product],
+}
