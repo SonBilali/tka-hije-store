@@ -19,12 +19,20 @@ const categories = [
         align: 'right' // Teksti në të djathtë
     },
     {
-        name: 'AKSESORË',
-        slogan: 'Detajet bëjnë diferencën',
-        // Foto stili Tom Ford / Parfum
+        name: 'ÇANTA',
+        slogan: 'Elegancë në çdo detaj',
+        // Këtu mbaj foton e çantës që do ti
+        image: 'linku-i-fotos-se-cantes-tende',
+        link: '/shop/canta', // <--- Kjo është jetësore që të lidhet me Navbar-in
+        align: 'left'
+    },
+    {
+        name: 'PARFUMERI',
+        slogan: 'Aroma juaj, firma juaj',
+        // Këtu mbaj atë foton e Tom Ford që më dërgove
         image: 'https://th.bing.com/th/id/R.3bed1d965b4711475b1c8790c8361a55?rik=TRzVC6tzNVZGQg&riu=http%3a%2f%2fwafadutyfree.com%2fcdn%2fshop%2farticles%2f60537547-f06f-441b-99a5-44f3133b17c3_d-stories-beauty-niche-fragrances-hero.jpg%3fv%3d1712971396&ehk=gtLSWug99m1Ts3IZdnqwXVokKjX%2bH%2frcTJA8f%2fnuOXI%3d&risl=&pid=ImgRaw&r=0',
-        link: '/shop/aksesore',
-        align: 'left' // Teksti në të majtë
+        link: '/shop/parfumeri', // <--- Kjo e lidh me butonin Parfumeri
+        align: 'right'
     }
 ];
 
