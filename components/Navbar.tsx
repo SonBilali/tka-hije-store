@@ -37,7 +37,7 @@ export default function Navbar() {
                         </div>
                     </Link>
                     <span className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-[#D4AF37]/80 mt-2">
-                        Krijuar. 2026 • AL-DE
+                        2026 • AL-DE
                     </span>
                 </div>
 
