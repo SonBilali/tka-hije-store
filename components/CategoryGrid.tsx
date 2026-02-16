@@ -7,7 +7,7 @@ const categories = [
         slogan: 'Elegancë',
         // Foto stili Dua Lipa / Versace
         image: 'https://www.hawtcelebs.com/wp-content/uploads/2025/02/dua-lipa-for-puma-speedcat-campaign-3.jpg',
-        link: '/shop/femra',
+        link: '/product/shop/femra',
         align: 'left' // Teksti në të majtë
     },
     {
@@ -15,7 +15,7 @@ const categories = [
         slogan: 'Urban Luxury & Streetwear',
         // Foto stili Reper Gjerman / Luciano
         image: 'https://essentialjournal.co.uk/wp-content/uploads/2023/06/GU774_LUGGAGE-RG_DPS_PR-CROPS_150dpi_5-scaled.jpg',
-        link: '/shop/meshkuj',
+        link: '/product/shop/meshkuj',
         align: 'right' // Teksti në të djathtë
     },
     {
@@ -23,7 +23,7 @@ const categories = [
         slogan: 'Detajet bëjnë diferencën',
         // Foto stili Tom Ford / Parfum
         image: 'https://th.bing.com/th/id/R.3bed1d965b4711475b1c8790c8361a55?rik=TRzVC6tzNVZGQg&riu=http%3a%2f%2fwafadutyfree.com%2fcdn%2fshop%2farticles%2f60537547-f06f-441b-99a5-44f3133b17c3_d-stories-beauty-niche-fragrances-hero.jpg%3fv%3d1712971396&ehk=gtLSWug99m1Ts3IZdnqwXVokKjX%2bH%2frcTJA8f%2fnuOXI%3d&risl=&pid=ImgRaw&r=0',
-        link: '/shop/aksesore',
+        link: '/product/shop/aksesore',
         align: 'left' // Teksti në të majtë
     }
 ];
