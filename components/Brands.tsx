@@ -1,4 +1,4 @@
-const brands = ["GUCCI", "PRADA", "BURBERRY", "TOM FORD", "LOUIS VUITTON", "CHANEL", "DIOR", "VERSACE"];
+const brands = ["GUCCI", "PRADA", "BURBERRY", "TOM FORD", "LOUIS VUITTON", "CHANEL", "DIOR", "VERSACE", "TJERA"];
 
 const Brands = () => {
     return (
