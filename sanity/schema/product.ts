@@ -31,7 +31,10 @@ export const product = defineType({
                 list: [
                     { title: "Femra", value: "femra" },
                     { title: "Meshkuj", value: "meshkuj" },
-                    { title: "Aksesorë", value: "aksesore" },
+                    { title: "Fëmijë", value: "femije" },
+                    { title: "Çanta", value: "canta" },
+                    { title: "Parfumeri", value: "parfumeri" },
+                    { title: "Outlet", value: "outlet" },
                 ],
             },
             validation: (Rule) => Rule.required(),

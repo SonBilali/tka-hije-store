@@ -13,6 +13,14 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'i.pinimg.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'th.bing.com', // Këtë e kishe nga fotoja e kaluar
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.designscene.net', // <--- SHTO KËTË PËR ÇANTËN!
       }
     ],
   },
