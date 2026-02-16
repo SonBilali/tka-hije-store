@@ -22,7 +22,7 @@ const categories = [
         name: 'ÇANTA',
         slogan: 'Elegancë në çdo detaj',
         // Këtu mbaj foton e çantës që do ti
-        image: 'https://www.designscene.net/wp-content/uploads/2023/11/Louis-Vuitton-Horizons-Never-End-00-1140x570.jpgku-i-fotos-se-cantes-tende',
+        image: 'https://www.designscene.net/wp-content/uploads/2023/11/Louis-Vuitton-Horizons-Never-End-00-1140x570.jpg',
         link: '/shop/canta', // <--- Kjo është jetësore që të lidhet me Navbar-in
         align: 'left'
     },
